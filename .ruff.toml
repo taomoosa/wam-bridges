@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: MIT
+line-length = 120
+target-version = "py310"
+
+[lint]
+select = ["E", "F", "I"]
+ignore = ["E402", "E501"]
+
+[lint.isort]
+# Keep overlay import ordering consistent with the destination framework.
+known-first-party = ["cosmos_framework", "tools"]

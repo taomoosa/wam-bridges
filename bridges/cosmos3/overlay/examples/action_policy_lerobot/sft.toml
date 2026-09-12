@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: OpenMDW-1.1
+# Template; train.py --prepare substitutes the quoted placeholders below.
+[job]
+task = "vfm"
+experiment = "action_policy_lerobot_nano"
+project = "cosmos3_action"
+group = "lerobot"
+name = "demo"
+wandb_mode = "disabled"
+
+[model]
+precision = "bfloat16"
+[model.parallelism]
+data_parallel_shard_degree = -1
+data_parallel_replicate_degree = 1
+context_parallel_shard_degree = 1
+[model.compile]
+enabled = false
+[model.ema]
+enabled = false
+[model.tokenizer]
+vae_path = "__VAE__"
+
+[optimizer]
+lr = 0.00001
+[scheduler]
+cycle_lengths = [100]
+[dataloader_train]
+max_samples_per_batch = 1
+[trainer]
+max_iter = 10
+logging_iter = 1
+grad_accum_iter = 1
+[trainer.callbacks.compile_tokenizer]
+enabled = false
+[checkpoint]
+load_path = "__BASE__"
+save_iter = 10
+
+[custom]
+bundle_path = "__BUNDLE__"
+bundle_id = "__ID__"
+horizon = __HORIZON__
+num_domains = __NUM_DOMAINS__
+seed = __SEED__

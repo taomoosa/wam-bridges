@@ -1,0 +1,26 @@
+WAM Bridges
+
+Original bridge code and documentation are licensed under MIT (see LICENSE).
+This includes embodiment_profile.py, configurable_lerobot_dataset.py,
+examples/action_policy_lerobot/train.py, infer.py, and profiles.json.
+These are bridge-authored additions, not files distributed by NVIDIA.
+
+The following files under bridges/cosmos3/overlay retain OpenMDW-1.1 and
+NVIDIA copyright/origin notices because they adapt NVIDIA recipe settings,
+sample/batch structures, or inference integration:
+
+  cosmos_framework/configs/base/experiment/action/posttrain_config/action_policy_lerobot_nano.py
+  cosmos_framework/data/generator/action/utils/embodiment_sample.py
+  cosmos_framework/inference/lerobot_policy.py
+  examples/action_policy_lerobot/sft.toml
+
+Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+License: bridges/cosmos3/licenses/cosmos-framework-LICENSE
+Source references:
+  https://github.com/NVIDIA/cosmos-framework/tree/2b6c9a7061ae78dc83e29a4910ec5f8c9fe4b6ce
+  https://github.com/NVIDIA/cosmos/tree/a9aa3bc3986910892d3af1575a486babfb731275
+
+MIT does not replace the license on these files or on external dependencies.
+No model weights, datasets, CUDA components, or third-party runtime source
+are distributed in this repository. Their terms apply to separately obtained
+assets and environments.
